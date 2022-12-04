@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Jogo {
     
 
-    char man = 's', opJ = ' ';
-    int cont = 0, n = 52, pont = 0, pont2 = 0;
-    boolean controle1 = false;
-    boolean controle2 = false;
+    private char man = 's', opJ = ' ';
+    private int cont = 0, n = 52, pont = 0, pont2 = 0;
+    private boolean controle1 = false;
+    private boolean controle2 = false;
 
     Scanner sc = new Scanner(System.in);
     Random rd = new Random();
@@ -36,8 +36,8 @@ public class Jogo {
     public void jogador2(ArrayList<Cartas> cartasBar, ArrayList<String> cartas){
         System.out.println("###############################Jogador 2###############################");
         System.out.println("Rodada: " + (cont+1) +"\nPontos atuais: " + pont2 + "\nDeseja puxar uma carta (s/n)?");
-        opJ = sc.next().charAt(0);
-        if (opJ == 's') {
+        man = sc.next().charAt(0);
+        if (man == 's') {
             int ind = rd.nextInt(n);
             Cartas card = cartasBar.get(ind);
 
@@ -46,7 +46,7 @@ public class Jogo {
             System.out.println("Pontos atuais(Jogador 2): " + pont2 + "\n");
             cartasBar.remove(ind);
             confereVit(pont, pont2, opJ, man);
-        } else if(opJ == 'n') {
+        } else if(man == 'n') {
             confereVit(pont, pont2, opJ, man);
             controle2 = true;
         }
@@ -130,4 +130,70 @@ public class Jogo {
 
         return vit;
     }
+
+    public char getMan() {
+        return man;
+    }
+
+    public void setMan(char man) {
+        this.man = man;
+    }
+
+    public char getOpJ() {
+        return opJ;
+    }
+
+    public void setOpJ(char opJ) {
+        this.opJ = opJ;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+
+    public void setCont(int cont) {
+        this.cont = cont;
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public int getPont() {
+        return pont;
+    }
+
+    public void setPont(int pont) {
+        this.pont = pont;
+    }
+
+    public int getPont2() {
+        return pont2;
+    }
+
+    public void setPont2(int pont2) {
+        this.pont2 = pont2;
+    }
+
+    public boolean isControle1() {
+        return controle1;
+    }
+
+    public void setControle1(boolean controle1) {
+        this.controle1 = controle1;
+    }
+
+    public boolean isControle2() {
+        return controle2;
+    }
+
+    public void setControle2(boolean controle2) {
+        this.controle2 = controle2;
+    }
+
+    
 }
