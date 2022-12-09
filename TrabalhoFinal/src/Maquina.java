@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 
 public class Maquina extends Jogador{
-
-    private int pont;
-
-    
+   
 
     public Maquina() {
         super();
@@ -19,27 +16,20 @@ public class Maquina extends Jogador{
             this.op = 'n';
         }
         if (this.pont < 19 && this.op == 's') {
-            System.out.println("###############################Jogador 2###############################");
-            int ind = rd.nextInt(n);
-            Cartas card = cartasBar.get(ind);
+            try {
+                System.out.println("###############################Jogador 2###############################");
+                int ind = rd.nextInt(n);
+                Cartas card = cartasBar.get(ind);
 
-            System.out.println(card.toString());
-            pont += card.calculaValor(cartas.get(ind));
-            System.out.println("Pontos atuais(Jogador 2): " + pont);
-            cartasBar.remove(ind);
+                System.out.println(card.toString());
+                pont += card.calculaValor(cartas.get(ind));
+                System.out.println("Pontos atuais(Jogador 2): " + pont);
+                cartasBar.remove(ind);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(e.getMessage());
+            }
         }
         n -= 1;
-    }
-
-
-    public int getPont() {
-        return pont;
-    }
-
-
-
-    public void setPont(int pont) {
-        this.pont = pont;
     }
 
     

@@ -22,13 +22,17 @@ public class Jogador {
         System.out.println("\nPontos atuais: " + pont + "\nDeseja puxar uma carta (s/n)?");
         op = sc.next().charAt(0);
         if (op == 's') {
-            int ind = rd.nextInt(n);
-            Cartas card = cartasBar.get(ind);
+            try{
+                int ind = rd.nextInt(n);
+                Cartas card = cartasBar.get(ind);
 
-            System.out.println(card.toString());
-            pont += card.calculaValor(cartas.get(ind));
-            System.out.println("Pontos atuais(Jogador 1): " + pont + "\n");
-            cartasBar.remove(ind);
+                System.out.println(card.toString());
+                pont += card.calculaValor(cartas.get(ind));
+                System.out.println("Pontos atuais(Jogador 1): " + pont + "\n");
+                cartasBar.remove(ind);
+            } catch(IndexOutOfBoundsException e){
+                System.out.println(e.getMessage());
+            }
         }
         n -= 1;
     }
