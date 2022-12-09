@@ -24,14 +24,14 @@ public class Jogo {
                     if(j.getOp() == 's'){
                         System.out.println("###############################Jogador 1###############################");
                         j.jogadaJ(cartasBar, cartas);
-                        confereVit(j.getPont(), m.getPont(), j.getOp(), m.getMan());
+                        confereVit(j.getPont(), m.getPont(), j.getOp(), m.getOp());
                     }
                 }else{
                     m.maquinaM(cartasBar, cartas);
-                    confereVit(j.getPont(), m.getPont(), j.getOp(), m.getMan());
+                    confereVit(j.getPont(), m.getPont(), j.getOp(), m.getOp());
                 }
                 cont += 1;
-            } while (confereVit(j.getPont(), m.getPont(), j.getOp(), m.getMan()) == false);
+            } while (confereVit(j.getPont(), m.getPont(), j.getOp(), m.getOp()) == false);
         } else if(op == 2) {
 
             Jogador j1 = new Jogador();
